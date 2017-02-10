@@ -4,5 +4,7 @@
 .idea/
 /node_modules
 .vscode/
+dev-config/manifest.json
+dev-config/server/vendor.js
 *.paw
 .iml

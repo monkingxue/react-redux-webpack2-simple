@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dashboard -- node --harmony ./dev-config/server/devServer.js --host 0.0.0.0",
+    "start": "better-npm-run ddl && webpack-dashboard -- node --harmony ./dev-config/server/devServer.js --host 0.0.0.0",
     "build": "npm run clean && better-npm-run build",
     "build:ssr": "npm run clean && better-npm-run build:ssr && better-npm-run build:server",
     "build:library": "npm run clean && better-npm-run build:library",
@@ -13,6 +13,9 @@
     "lint": "eslint src"
   },
   "betterScripts": {
+    "ddl": {
+      "command": "./node_modules/.bin/webpack --config ./dev-config/dll.config.js"
+    },
     "build": {
       "command": "./node_modules/.bin/webpack --config ./dev-config/webpack.config.js",
       "env": {
@@ -64,7 +67,7 @@
     "url": "git+https://github.com/monkingxue/react-redux-webpack2-simple.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
    "babel": {
     "extends": "./dev-config/.babelrc"
   },

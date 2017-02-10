@@ -40,7 +40,6 @@ if (__DEV__) {
 
 //设置开发时源代码映射工具
 const devTool = __DEV__ ? 'cheap-module-eval-source-map' : 'hidden-source-map';
-
 //基本配置
 let config = {
   cache: false,
@@ -62,6 +61,7 @@ let config = {
     [].concat(plugins.commonPlugins).concat(plugins.prodPlugins),
   module: {
     rules: [
+      //TODO set the correct .eslintrc
       // loaders.jslint,
       loaders.jsx,
       loaders.style,
@@ -72,23 +72,6 @@ let config = {
   externals: utils.externals,
   target: 'web'
 };
-
-//如果当前是Library配置
-if (NODE_ENV === "library") {
-
-
-  let library = require("./apps.config.js").library;
-
-  //添加生成项的依赖库名
-  config.output.library = library.libraryName;
-
-  //添加全局挂载名
-  config.output.libraryTarget = library.libraryTarget;
-
-  //如果是生成环境下，将文件名加上hash
-  config.output.filename = `${library.name}.library.js`;
-
-}
 
 //为生产环境添加额外配置
 if (NODE_ENV === "production") {

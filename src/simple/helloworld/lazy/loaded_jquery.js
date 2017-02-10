@@ -1,6 +1,6 @@
 // @flow
 import React, { Component, PropTypes } from 'react';
-import { LazilyLoadFactory } from '../../../common/utils/load/lazily_load';
+import { LazilyLoadFactory } from '../../../lazily_load';
 
 /**
  * 组件LoadedJquery

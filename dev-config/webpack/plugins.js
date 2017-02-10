@@ -3,7 +3,6 @@ let webpack = require('webpack');
 let CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-let appsConfig = require("./../apps.config.js");
 const utils = require('./utils');
 
 //获取命令行NODE_ENV环境变量,默认为development
@@ -44,6 +43,10 @@ exports.devPlugins = [
       context: '/',
       postcss: utils.postCSSConfig
     }
+  }),
+  new webpack.DllReferencePlugin({
+    context: __dirname,
+    manifest: require("../manifest.json"),
   })
 ];
 
@@ -71,7 +74,7 @@ exports.prodPlugins = [
 
   //代码压缩插件
   new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true
+    sourceMap: false
   }),
 
   new webpack.optimize.AggressiveMergingPlugin()//Merge chunks

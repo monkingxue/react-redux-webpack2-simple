@@ -1,10 +1,7 @@
-/**
- * Created by apple on 16/7/23.
- */
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './app.css';
-import LazilyLoad, { importLazy } from '../../../common/utils/load/lazily_load';
+import LazilyLoad, { importLazy } from '../../../lazily_load';
 
 
 class App extends Component {
@@ -83,7 +80,7 @@ class App extends Component {
         <p>
           <a
             style={{ color: 'blue' }}
-            onClick={this.handleClick}>点击加载JQuery</a>
+            onClick={this.handleClick}>点击加载sdJQuery</a>
         </p>
 
         <LazilyLoad modules={{

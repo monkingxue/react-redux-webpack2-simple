@@ -4,7 +4,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from './middleware/promiseMiddleware';
-import { routerMiddleware, syncHistory } from 'react-router-redux';
+import { routerMiddleware } from 'react-router-redux';
 import rootReducer from './reducer';
 
 //从总的reducers文件中获取所有的Reducer
